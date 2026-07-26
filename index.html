@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dr. Bhupesh Dewan | AI in Healthcare, Medical Writing, Pharmaceutical Strategy, Clinical Documentation, and Product Intelligence." />
+  <meta name="keywords" content="Bhupesh Dewan, AI in Healthcare, Medical Writing, Pharmaceutical Strategy, Product Intelligence, Clinical Documentation" />
+  <meta name="author" content="Dr. Bhupesh Dewan" />
+  <title>Dr. Bhupesh Dewan | AI, Healthcare & Pharmaceutical Strategy</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0c1a2d;
+      --card: rgba(10, 23, 41, 0.82);
+      --card-2: rgba(13, 31, 55, 0.88);
+      --text: #eaf2ff;
+      --muted: #a8b7cf;
+      --line: rgba(255,255,255,0.08);
+      --accent: #4da3ff;
+      --accent-2: #52e0c4;
+      --accent-3: #8b7dff;
+      --shadow: 0 24px 60px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(77,163,255,0.18), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(82,224,196,0.14), transparent 28%),
+        linear-gradient(180deg, #050b14, #07111f 40%, #081220 100%);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(5, 11, 20, 0.6);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #04111f;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(77,163,255,0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: flex-end;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 72px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .side-card,
+    .section-card,
+    .stat,
+    .chip,
+    .contact-card {
+      background: linear-gradient(180deg, rgba(13,31,55,0.95), rgba(9,19,34,0.88));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+      min-height: 460px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(circle at top right, rgba(82,224,196,0.15), transparent 32%),
+                  radial-gradient(circle at 20% 20%, rgba(77,163,255,0.16), transparent 28%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(77,163,255,0.12);
+      color: #cce4ff;
+      font-size: 0.88rem;
+      border: 1px solid rgba(77,163,255,0.25);
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 26px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dce8fb;
+      font-size: 0.92rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #06111f;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
+      color: var(--text);
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 24px;
+    }
+
+    .side-card {
+      padding: 26px;
+    }
+
+    .profile {
+      display: grid;
+      place-items: center;
+      min-height: 250px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        radial-gradient(circle at 50% 30%, rgba(82,224,196,0.14), transparent 36%);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile::after {
+      content: "Professional Photo";
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(77,163,255,0.95), rgba(82,224,196,0.9));
+      box-shadow: 0 24px 60px rgba(77,163,255,0.22);
+      display: grid;
+      place-items: center;
+      font-size: 3rem;
+      color: #05111f;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .mini-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+    .mini-text {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 24px 0 0;
+    }
+
+    .stat {
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.7rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span { color: var(--muted); font-size: 0.9rem; }
+
+    section {
+      padding: 26px 0;
+    }
+
+    .section-card {
+      padding: 30px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      min-height: 100%;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .expertise {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      color: #dce8fb;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      opacity: 0.7;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 18px 18px 18px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 24px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 5px rgba(77,163,255,0.14);
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      padding: 26px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #dbe7f8;
+    }
+
+    .footer {
+      padding: 26px 0 48px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .floating-note {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(82,224,196,0.08);
+      border: 1px solid rgba(82,224,196,0.14);
+      color: #d8fff6;
+      font-size: 0.95rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero { padding-top: 44px; }
+      .hero-card { min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card, .side-card, .section-card, .contact-card {
+        padding: 22px;
+      }
+      h1 { line-height: 1.02; }
+      .btn { width: 100%; }
+      .hero-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <div class="brand-mark">BD</div>
+        <div>
+          <div>Dr. Bhupesh Dewan</div>
+          <div class="muted" style="font-size:.86rem">AI • Healthcare • Strategy</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container hero">
+    <div class="hero-grid">
+      <section class="hero-card" aria-label="Hero section">
+        <span class="eyebrow">Professional website • GitHub Pages ready</span>
+        <h1>Building smarter healthcare communication with AI, writing, and strategy.</h1>
+        <p class="lead">
+          Dr. Bhupesh Dewan is a healthcare professional focused on AI-enabled workflows, medical writing,
+          pharmaceutical strategy, clinical documentation, and product intelligence. This website brings together
+          the key themes from the professional profile into a clean, modern digital presence.
+        </p>
+        <div class="pill-row">
+          <span class="pill">AI in Healthcare</span>
+          <span class="pill">Medical Writing</span>
+          <span class="pill">Pharmaceutical Strategy</span>
+          <span class="pill">Clinical Documentation</span>
+          <span class="pill">Product Intelligence</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Explore Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact / LinkedIn</a>
+        </div>
+        <div class="floating-note">
+          Ready to upload to GitHub Pages as a single-file homepage or expand into a multi-page portfolio.
+        </div>
+      </section>
+
+      <aside class="hero-visual">
+        <div class="side-card">
+          <div class="profile">
+            <div style="text-align:center; position:relative; z-index:1;">
+              <div class="avatar">BD</div>
+              <div class="mini-title">Dr. Bhupesh Dewan</div>
+              <p class="mini-text">AI • Healthcare • Medical Writing</p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>4</strong><span>Core focus areas</span></div>
+            <div class="stat"><strong>1</strong><span>Clean website</span></div>
+            <div class="stat"><strong>∞</strong><span>Future expansions</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <section id="about">
+    <div class="container section-card">
+      <div class="section-head">
+        <div>
+          <h2>About</h2>
+          <p>A concise professional story that positions the site as a modern healthcare and AI portfolio.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Who this website is for</h3>
+          <p>
+            This site is designed as a professional digital home for Dr. Bhupesh Dewan's work across healthcare,
+            AI-enabled productivity, pharmaceutical communication, and content development.
+          </p>
+          <p>
+            It is structured to feel premium, credible, and easy to extend into a full personal brand website.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Positioning statement</h3>
+          <p>
+            Bridging clinical insight and modern AI workflows to create high-quality professional content,
+            better documentation, and clearer scientific communication.
+          </p>
+          <div class="expertise">
+            <span class="chip">Healthcare</span>
+            <span class="chip">AI Tools</span>
+            <span class="chip">Product Content</span>
+            <span class="chip">Strategic Writing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="container section-card">
+      <div class="section-head">
+        <div>
+          <h2>Expertise</h2>
+          <p>Skill buckets that are easy to understand at a glance.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>AI in Healthcare</h3>
+          <ul>
+            <li>Workflow automation</li>
+            <li>Prompt engineering</li>
+            <li>NotebookLM / document generation</li>
+            <li>AI-assisted knowledge work</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Medical Writing</h3>
+          <ul>
+            <li>Product monographs</li>
+            <li>Scientific documents</li>
+            <li>Evidence summaries</li>
+            <li>HCP-facing content</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pharmaceutical Strategy</h3>
+          <ul>
+            <li>Product positioning</li>
+            <li>Clinical communication</li>
+            <li>Go-to-market thinking</li>
+            <li>Portfolio storytelling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container section-card">
+      <div class="section-head">
+        <div>
+          <h2>Featured Projects</h2>
+          <p>Use this section to showcase the work most relevant to your professional profile.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Medical Services Document Studio</h3>
+          <p>A local-first document workflow for structured content creation, evidence handling, and exports.</p>
+        </div>
+        <div class="card">
+          <h3>Product Monograph Generator</h3>
+          <p>An AI-assisted content system for producing high-quality product monographs and summaries.</p>
+        </div>
+        <div class="card">
+          <h3>Prompt Engineering Library</h3>
+          <p>A repeatable system for reducing token usage and improving output quality across recurring tasks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="container section-card">
+      <div class="section-head">
+        <div>
+          <h2>Career Timeline</h2>
+          <p>A compact, editable timeline for professional milestones.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>Healthcare & Pharma Foundation</strong>
+          <div class="muted">Built domain knowledge in medical communication, patient-focused thinking, and product understanding.</div>
+        </div>
+        <div class="timeline-item">
+          <strong>AI Learning & Workflow Design</strong>
+          <div class="muted">Adopted AI tools to streamline writing, summarize documents, and accelerate professional content creation.</div>
+        </div>
+        <div class="timeline-item">
+          <strong>Portfolio & Brand Development</strong>
+          <div class="muted">Created a public-facing digital presence to highlight expertise, projects, and future publications.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container section-card">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p>Keep this section simple and professional.</p>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Connect</h3>
+          <p class="muted">Add your preferred professional contact details and links here.</p>
+          <div class="contact-list">
+            <a class="contact-link" href="https://www.linkedin.com/in/dr-bhupesh-dewan-1a4b583/" target="_blank" rel="noreferrer">LinkedIn Profile</a>
+            <a class="contact-link" href="mailto:bhupesh@example.com">Email</a>
+            <a class="contact-link" href="#home">Back to top</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>Website launch note</h3>
+          <p>
+            This homepage is ready to be uploaded to your GitHub Pages repository as <code>index.html</code>.
+            It can be expanded later into multiple pages without changing the overall design system.
+          </p>
+          <p class="muted">
+            Replace the placeholder contact details, avatar initials, and project summaries with final content before publishing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Dr. Bhupesh Dewan. Built for GitHub Pages.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
